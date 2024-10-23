@@ -1,6 +1,6 @@
 import psycopg2  # Импорт адаптера базы данных PostgreSQL
 import nechetk as nh  # Импорт библиотеки nechetk (предполагается, что это пользовательская библиотека)
-
+import chat_rec as rc
 # Определение параметров подключения к базе данных
 host = 'postgres81.1gb.ru'  # Хост базы данных
 port = 5432  # Порт базы данных
@@ -13,10 +13,13 @@ connection = psycopg2.connect(host=host, user=username, password=password, datab
 
 # Создание объекта курсора для выполнения запросов
 cur = connection.cursor()
-
+user_id =0
 # Определение идентификатора пользователя, для которого нужно получить данные
-user_id = 1
+def set_user_id(id):
+    global user_id
+    user_id = id
 
+set_user_id(1)
 # Инициализация пустых списков и словарей для хранения данных
 id_skills = []
 progress = {}
@@ -46,14 +49,18 @@ if flag:
     print("\nЗначения:")
     for value in progress.values():
         print(value)
-    
+    print("------------------------------------")   
     # Закрытие соединения с базой данных
     connection.close()
     
     # Вызов функции nechetk.start с словарем прогресса
     mass_rec = nh.start(progress)
+    print("------------------------------------")
     print(mass_rec)
-    
+    print("------------------------------------")
+    outpute_info = rc.pces(mass_rec)
+    print(outpute_info)
+    print("------------------------------------")
 else:
     print(f'Пользователь с ID {user_id} не существует в базе данных')
     connection.close()
