@@ -37,7 +37,7 @@ def pces(data):
                     recommendations[id] = params['text']
                     break
         else:
-            recommendations[id] = "Рекомендация не найдена."
+            recommendations[id] = ""
 
     # Преобразование словаря с рекомендациями в JSON
     json_output = json.dumps(recommendations, indent=4, ensure_ascii=False)
