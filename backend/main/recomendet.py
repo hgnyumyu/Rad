@@ -57,6 +57,7 @@ if flag:
     mass_rec = nh.start(progress)
     print("------------------------------------")
     print(mass_rec)
+    #читает рекомендации из json 
     print("------------------------------------")
     outpute_info = rc.pces(mass_rec)
     print(outpute_info)
