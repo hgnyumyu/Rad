@@ -162,35 +162,6 @@ def start(val_dict):
     procent = {}  # Словарь для хранения процентных значений
     procent = output_values
     procent = {key: int(value * 100) for key, value in procent.items()}
-    # Сортируем выходные значения по убыванию
-    # sorted_values = sorted(output_values.items(), key=lambda x: x[1], reverse=True)
-    # recommended["recommended"] = [key for key, value in sorted_values]  # Сохраняем отсортированные ключи в рекомендуемые
-    # procent = output_values  # Сохраняем выходные значения в процентный словарь
-
-    # result_array = []  # Массив для хранения индексов рекомендуемых технологий
-    # # Проверяем, какие технологии рекомендованы и добавляем их индексы в result_array
-    # if 'backend' in recommended['recommended']:
-    #     result_array.append(1)  # Индекс для бэкенда
-    # if 'front_end' in recommended['recommended']:
-    #     result_array.append(0)  # Индекс для фронтенда
-    # if 'linux' in recommended['recommended']:
-    #     result_array.append(3)  # Индекс для Linux
-    # if 'unity' in recommended['recommended']:
-    #     result_array.append(4)  # Индекс для Unity
-    # if 'subd' in recommended['recommended']:
-    #     result_array.append(2)  # Индекс для СУБД
-    # if 'Unreal' in recommended['recommended']:
-    #     result_array.append(5)  # Индекс для Unreal
-    # if 'Scapy' in recommended['recommended']:
-    #     result_array.append(6)  # Индекс для Scapy
-
-    # Создаем словарь процентных значений для рекомендованных технологий
-    # procent = {str(result_array[i]): value for i, (key, value) in enumerate(sorted(output_values.items(), key=lambda x: x[1], reverse=True)) if i < len(result_array)}
-
-    # Сортировка словаря по ключам
-    # sorted_procent = {k: procent[k] for k in sorted(procent)}
-
-    # print(procent)  # Выводим процентные значения
     return procent # Возвращаем массив индексов и словарь процентных значений
 
 
@@ -225,3 +196,5 @@ output_values = sim.output
 #     print("Subd:", output_values['subd'])
 # else:
 #     print("Subd: Not available")
+
+#третий уровень

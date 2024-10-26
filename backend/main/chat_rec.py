@@ -40,8 +40,30 @@ def pces(data):
             recommendations[id] = ""
 
     # Преобразование словаря с рекомендациями в JSON
-    json_output = json.dumps(recommendations, indent=4, ensure_ascii=False)
+    # json_output = json.dumps(recommendations, indent=4, ensure_ascii=False)
 
     # Вывод JSON
     # print(json_output)
-    return json_output
+    return recommendations
+def pcess(data):
+    # Чтение рекомендаций из JSON-файла
+    with open('recomend23.json', 'r', encoding='utf-8') as file:
+        recommendations_data = json.load(file)
+
+    # Создание словаря с рекомендациями на основе значений
+    recommendations = {}
+    for id, value in data.items():
+        if id in recommendations_data['recommendations']:
+            for level, params in recommendations_data['recommendations'][id].items():
+                if params['min'] <= value <= params['max']:
+                    recommendations[id] = params['text']
+                    break
+        else:
+            recommendations[id] = ""
+
+    # Преобразование словаря с рекомендациями в JSON
+    # json_output = json.dumps(recommendations, indent=4, ensure_ascii=False)
+
+    # Вывод JSON
+    # print(json_output)
+    return recommendations
