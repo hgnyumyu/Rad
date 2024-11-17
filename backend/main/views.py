@@ -53,13 +53,13 @@ def auth(request):
         print(request.GET.get('user_id'))
 
 
-    return render(request, "/public_html/autorization.html", {'AAA':'aaa'})
+    return render(request, "./autorization.html", {'AAA':'aaa'})
 
 
 def register(request):
 
 
-    return render(request, "../public_html/registration.html", {'AAA':'aaa'})
+    return render(request, "./registration.html", {'AAA':'aaa'})
 
 class Chat(APIView):
     @method_decorator(csrf_exempt)
@@ -153,7 +153,7 @@ class Registration(APIView):
         print(user_id)
         cur.execute('INSERT INTO xgb_web_coach."Users" (user_id, login,first_name,last_name,othectvo,password) VALUES (%s,%s,%s,%s,%s,%s)', (user_id,input_login,first_name,last_name,othestvo, hashed_password))
         connection.commit()
-        connectin.close()
+        connection.close()
         return Response({'request':'OK'})
 
 

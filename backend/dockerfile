@@ -13,7 +13,7 @@ FROM python:3.10-slim
 
 # RUN pip install setuptools==59.8.0 && pip install numpy==1.19.2
 COPY requirements.txt ./
-RUN pip install tensorflow tensorflow-io
+# RUN pip install tensorflow tensorflow-io
 RUN pip install --no-cache-dir -r requirements.txt
 
 
