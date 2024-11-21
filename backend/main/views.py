@@ -12,6 +12,8 @@ import bcrypt
 
 # Create your views here.
 
+class DBConnect:
+    pass
 
 def main(request):
     print(request.method)
