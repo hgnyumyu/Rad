@@ -62,7 +62,6 @@ def register(request):
     return render(request, "./registration.html", {'AAA':'aaa'})
 
 class Chat(APIView):
-    @method_decorator(csrf_exempt)
     def post(self, request):
         data = request.data['zapros']
         otvet = chat.get_response_model(data)
@@ -71,11 +70,9 @@ class Chat(APIView):
     
 
 class Test(APIView):
-    @method_decorator(csrf_exempt)
     def get(self, request):
        return Response({'data':'Штирлиц всю ночь топил камин. Наутро камин утонул.'}) 
      
-    @method_decorator(csrf_exempt)
     def post(self, request):
         data = request.data['data']
         if data == '1':
@@ -87,7 +84,6 @@ class Test(APIView):
 
 
 class Autorization(APIView):
-    @method_decorator(csrf_exempt)
     def post(self,request):
         data = request.data
         input_name = data['name']
@@ -122,7 +118,6 @@ class Autorization(APIView):
 
 
 class Registration(APIView):
-    @method_decorator(csrf_exempt)
     def post(self,request):
 
         data = request.data
@@ -158,7 +153,6 @@ class Registration(APIView):
 
 
 class Nechetk(APIView):
-    @method_decorator(csrf_exempt)
     def post(self,request):
         data = request.data
         user_id = data['id']
